@@ -6,12 +6,12 @@
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [ring "1.1.6"]
                  [compojure "1.1.3"]
+                 [aleph "0.3.0-beta7"]
                  [midje "1.5-alpha1"]
 
                  [jayq "0.3.2"]
                  [crate "0.2.2"]]
-  :plugins [[lein-ring "0.7.5"]
-            [lein-cljsbuild "0.2.9"]
+  :plugins [[lein-cljsbuild "0.2.9"]
             [lein-midje "2.0.3"]]
   :source-paths ["src/clj"]
-  :ring {:handler skeleton.main/app})
+  :main skeleton.main)
