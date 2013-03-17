@@ -18,18 +18,16 @@
   :aot [skeleton.main]
   :source-paths ["src/clj"]
   :hooks [leiningen.cljsbuild]
-  :cljsbuild {:test-commands {"unit" ["mocha-phantomjs" "resources/test.html"]}
+  :cljsbuild {:test-commands {"unit" ["mocha-phantomjs" "resources/public/test/test.html"]}
               :builds {:dev {:source-paths ["src/cljs"]
                              :compiler {:output-to "resources/public/js/skeleton.js"
                                         :optimizations :whitespace
-                                        :externs ["src/cljs/externs/mocha.js"
-                                                  "src/cljs/externs/chai.js"]
+                                        :externs ["src/cljs/externs/jquery-1.8.js"]
                                         :pretty-print true}}
                        :test {:source-paths ["src/cljs"
                                              "test/cljs/"]
-                              :compiler {:output-to "resources/public/js/tests.js"
+                              :compiler {:output-to "resources/public/test/js/tests.js"
                                          :optimizations :whitespace
-                                         :externs ["src/cljs/externs/mocha.js"
-                                                   "src/cljs/externs/chai.js"]
+                                         :externs ["src/cljs/externs/jquery-1.8.js"]
                                          :pretty-print true}}}}
   :main skeleton.main)
