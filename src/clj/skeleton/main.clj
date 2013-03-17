@@ -1,15 +1,18 @@
 (ns skeleton.main
   (:gen-class)
-  (:use compojure.core)
-  (:require [compojure.route :as route]
-            [compojure.handler :as handler]
-            [aleph.http :as aleph]))
+  (:use [compojure.route :only [resources not-found]]
+        [compojure.handler :only [site]] ; form, query params decode; cookie; session, etc
+        [compojure.core :only [defroutes GET POST DELETE ANY context]]
+        org.httpkit.server))
 
-(defroutes main-routes
-  (route/resources "/")
-  (route/not-found "Page not found"))
+(defn show-landing-page [req]
+  "lol")
+
+(defroutes all-routes
+  (GET "/" [] show-landing-page)
+  (resources "/")
+  (not-found "Page not found."))
 
 (defn -main []
-  (-> (handler/site main-routes)
-      (aleph/wrap-ring-handler)
-      (aleph/start-http-server {:port 3000})))
+  (run-server (site #'all-routes) {:port 3000}))
+
