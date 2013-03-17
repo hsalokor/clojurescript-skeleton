@@ -1,7 +1,12 @@
+resources/public/js/skeleton.js
+resources/public/test/js/tests.js
 /target
 /lib
 /classes
 /checkouts
+*#
+\.#*
+*.swp
 pom.xml
 *.jar
 *.class
