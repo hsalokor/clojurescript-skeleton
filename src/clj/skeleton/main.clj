@@ -3,13 +3,11 @@
   (:use [compojure.route :only [resources not-found]]
         [compojure.handler :only [site]] ; form, query params decode; cookie; session, etc
         [compojure.core :only [defroutes GET POST DELETE ANY context]]
+        [ring.util.response :only [redirect]]
         org.httpkit.server))
 
-(defn show-landing-page [req]
-  "lol")
-
 (defroutes all-routes
-  (GET "/" [] show-landing-page)
+  (GET "/" [] (redirect "index.html"))
   (resources "/")
   (not-found "Page not found."))
 
