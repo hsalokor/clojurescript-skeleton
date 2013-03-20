@@ -13,7 +13,7 @@
                  [jayq "2.3.0"]
                  [prismatic/dommy "0.0.2"]
                  [litmus "0.0.3"]]
-  :plugins [[lein-cljsbuild "0.3.1"]
+  :plugins [[lein-cljsbuild "0.3.0"]
             [lein-midje "3.0.0"]]
   :aot [skeleton.main]
   :source-paths ["src/clj"]
